@@ -1,0 +1,70 @@
+
+	\textbf{\color{myblue} Salvatore complex systems using computational tools}\\
+	Matplotlib Cheat Sheet\\
+
+	\begin{columns}
+		\column{0.6\linewidth}
+			\begin{tcolorbox}[title=Matplotlib]
+		 		Matplotlib (matplotlib.org) is a Python 2D plotting library which produces publication
+				 quality figures  in a variety of hardcopy formats and interactive environments across
+				 platforms.
+			\end{tcolorbox}
+
+			\begin{tcolorbox}[title=Workflow]
+				\begin{columns}
+					\column{0.025\linewidth}
+					\column{0.45\linewidth}
+						\includegraphics[width=1.\linewidth]{./histogram_labels.png}
+					\column{0.45\linewidth}
+						Steps to create a plot using matplotlib:\\
+						{\color{sharky_main}\small 1} Import libraries\\
+						{\color{sharky_main}\small 2} Prepare data\\
+						{\color{sharky_main}\small 3} Create plot\\
+						{\color{sharky_main}\small 4} Customize plot\\
+						{\color{sharky_main}\small 5} Show / Save plot\\
+				\end{columns}
+			\end{tcolorbox}
+
+			\begin{tcolorbox}[title={\small 1} Import libraries]
+				%listings is used to write python code in a Beamer presentation
+				\begin{lstlisting}[numbers=none]
+>>> import numpy as np
+>>> import matplotlib.mlab as mlab
+>>> import matplotlib.pyplot as plt
+				\end{lstlisting}
+			\end{tcolorbox}
+
+			\begin{tcolorbox}[title={\small 2} Prepare data]
+				\begin{lstlisting}[numbers=none]
+>>> mu, sigma = 100, 15
+>>> x = mu + sigma*np.random.randn(10000)
+				\end{lstlisting}
+			\end{tcolorbox}
+
+		\column{0.5\linewidth}
+			\begin{tcolorbox}[title={\small 3} Create plot]
+				\begin{lstlisting}[numbers=none]
+>>> n, bins, patches = plt.hist(x, 50, normed=1, facecolor='green', alpha=0.75)
+>>> y = mlab.normpdf(bins, mu sigma)
+>>> l = plt.plot(bins, y 'r-', linewidth=2)
+				\end{lstlisting}
+			\end{tcolorbox}
+
+			\begin{tcolorbox}[title={\small 4} Customize plot]
+				\begin{lstlisting}[numbers=none]
+>>> plt.xlabel('Smarts')
+>>> plt.ylabel('Probability')
+>>> plt.title(r'$\mathrm{Histogram of IQ:} \mu=100, \sigma=15$')
+>>> plt.xlim(40,160)
+>>> plt.ylim(0,0.03)
+>>> plt.grid(True)
+				\end{lstlisting}
+			\end{tcolorbox}
+
+			\begin{tcolorbox}[title={\small 5} Show / Save plot]
+				\begin{lstlisting}[numbers=none]
+>>> plt.savefi('histogram.png')
+>>> plt.show()
+				\end{lstlisting}
+			\end{tcolorbox}
+	\end{columns}
